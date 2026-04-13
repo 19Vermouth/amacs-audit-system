@@ -1,0 +1,7 @@
+crewai 
+langchain
+openai 
+streamlit 
+pandas 
+duckdb 
+chromadb

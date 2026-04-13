@@ -1,61 +1,49 @@
 from crewai import Agent
 
-def create_agents():
-    """
-    Creates and returns all agents for the audit & fraud detection system.
-    """
 
-    # 🔹 1. Data Ingestor Agent
+def create_agents():
+
+
+
     data_ingestor = Agent(
         role="Data Ingestor",
         goal="Convert raw financial data into a clean, structured format for analysis",
         backstory=(
-            "You are an expert in ETL pipelines and financial data preprocessing. "
-            "You specialize in cleaning messy CSV, Excel, and PDF financial records, "
-            "ensuring consistency, removing duplicates, and standardizing formats."
+            "Expert in ETL pipelines and financial preprocessing."
         ),
-        llm="openai/gpt-4o-mini",
         verbose=True,
         allow_delegation=False
     )
 
-    # 🔹 2. Fraud Detection Agent
     fraud_detector = Agent(
         role="Fraud Detection Analyst",
-        goal="Identify suspicious transactions using statistical and anomaly detection techniques",
+        goal="Identify suspicious transactions using anomaly detection",
         backstory=(
-            "You are a forensic data analyst specializing in fraud detection. "
-            "You use techniques like Benford's Law, Z-score analysis, and pattern recognition "
-            "to detect anomalies and suspicious financial behavior."
+            "Expert in fraud detection using statistical techniques."
         ),
-        llm="openai/gpt-4o-mini",
+
         verbose=True,
         allow_delegation=False
     )
 
-    # 🔹 3. Compliance Agent
     compliance_checker = Agent(
         role="Compliance Officer",
-        goal="Ensure all financial transactions comply with regulatory standards and policies",
+        goal="Ensure transactions comply with regulations",
         backstory=(
-            "You are a compliance expert with deep knowledge of financial regulations, "
-            "audit standards, and corporate governance. You identify policy violations "
-            "and ensure adherence to legal frameworks."
+            "Expert in financial compliance and audit standards."
         ),
-        llm="openai/gpt-4o-mini",
+
         verbose=True,
         allow_delegation=False
     )
 
-    # 🔹 4. Report Generator Agent
     report_generator = Agent(
         role="Audit Report Generator",
-        goal="Generate a clear, structured audit report summarizing findings and risks",
+        goal="Generate structured audit report",
         backstory=(
-            "You are a financial reporting expert skilled in summarizing complex analyses "
-            "into clear, actionable audit reports. You highlight risks, anomalies, and compliance issues."
+            "Expert in financial reporting and audit summaries."
         ),
-        llm="openai/gpt-4o-mini",
+
         verbose=True,
         allow_delegation=False
     )
